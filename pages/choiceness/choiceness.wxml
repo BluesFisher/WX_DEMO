@@ -1,0 +1,44 @@
+<view class='header'>
+  <view class='search'>
+    <icon class='searchIcon' type='search' size='16'> </icon>
+    <view class='searchView' bindtap='searchEvent'>面膜</view>
+    <image class='searchClass' src='/images/kind.png'></image>
+  </view>
+  <scroll-view class='nav' scroll-x='true'>
+    <navigator wx:for='{{headerNav}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator>
+  </scroll-view>
+  <view class='moreTitle' bindtap='showMore'>
+    <image class="{{morePic ? 'rotateRight' : ''}}" src='/images/more.png'></image>
+  </view>
+</view>
+
+<view class='pop'  hidden='{{popHidden}}'>
+  <view class='moreNav' >
+        <image wx:for='{{showItem.show1}}' wx:key='id' src='{{item.pic}}'></image>
+        <navigator wx:for='{{showItem.show1}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator>
+
+        <image wx:for='{{showItem.show2}}' wx:key='id' src='{{item.pic}}'></image>
+        <navigator wx:for='{{showItem.show2}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator>  
+    
+        <image wx:for='{{showItem.show3}}' wx:key='id' src='{{item.pic}}'></image>
+        <navigator wx:for='{{showItem.show3}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator>
+        
+        <image wx:for='{{showItem.show4}}' wx:key='id' src='{{item.pic}}'></image>
+        <navigator wx:for='{{showItem.show4}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator>
+  </view>
+  <view class="zhezao" hidden='{{popHidden}}'></view> 
+  <view class="{{popHidden ? 'popOut' : 'popMenu'}}">
+    <view class='choose'>{{choose}}</view>
+  </view>
+</view>
+
+<view class='content'>
+  <text class='inner'>毛毛鱼</text>
+  <text>let's do it, we're family</text>
+  <button open-type='share'>了解我</button>  
+  <view class='more'>
+    <text>more</text>
+    <image class='arrowdown' src='/images/down.png'></image>
+  </view>
+</view>
+<view class='footer'></view>

@@ -1,0 +1,13 @@
+<view class='header'>
+  <view class='search'>
+    <icon class='searchIcon' type='search' size='16'> </icon>
+    <input class='searchView' placeholder='' placeholder-class='placeholder' bindtap='searchEvent' focus='true'></input>
+  </view>
+  <view class='cancel' bindtap='cancel'>取消</view>
+  
+</view>
+
+<view class='content'>
+  
+</view>
+<view class='footer'></view>
