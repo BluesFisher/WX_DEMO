@@ -188,7 +188,6 @@
 .homePage-group {
   font-size: 13px;
   font-weight: 300;
-  top: 200px;
 }
 .homePage-group navigator {
   float: left;
@@ -198,6 +197,9 @@
   margin-top: 2px;
   text-align: center;
   width: 60px;
+}
+.homePage-group navigator:last-child {
+  margin-bottom: 30px;
 }
 .homePage-group image {
   float:left;
@@ -210,8 +212,6 @@
 .homePage-update {
   font-size: 15px;
   width: 100%;
-  height: auto;
-  top: 370px;
 }
 .homePage-update .tips {
   text-align: center;
@@ -256,4 +256,27 @@
   float: left;
   margin-left: 5px; 
   animation: rot .5s infinite alternate;
+}
+.float-button{  
+  width: 55px;
+  height: 55px;
+  background: #fff;
+  margin: 10px;
+  margin-left: 310px;
+  position: fixed;
+  border-radius: 40px;
+  bottom: 0;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 12px;
+  line-height: 80px;
+} 
+.top-image {
+  width: 25px;
+  height: 25px;
+  position: fixed;
+  bottom: 0;
+  margin-left: 325px;
+  margin-bottom: 33px;
+  z-index: 9999;
 }

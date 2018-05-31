@@ -38,7 +38,7 @@
 
 <!--START 内容主体-->
 
-<scroll-view class='content' scroll-y="true" bindscroll="scroll">
+<scroll-view class='content' style="height: 500px" scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-with-animation="true" bindscrolltolower="getMore">
   <swiper class='content-swiper' indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular='true'>
     <block wx:for="{{imgUrls}}" wx:key="*this">
       <swiper-item>
@@ -58,7 +58,7 @@
 
   <view class='homePage-update'>
     <view class='tips'>每天早10点 晚8点更新</view>
-    <view wx:for='{{homePageItem.show3}}' wx:key='id'>
+    <view wx:for='{{detailShow}}' wx:key='id'>
       <image src='{{item.pic}}'></image>
       <view class='des'>
         <view class='title'>{{item.title}}</view>
@@ -72,7 +72,9 @@
 </scroll-view> 
 
 <!--END 内容主体-->
-
-
+<view wx:if='{{floorstatus}}' bindtap="goTop">
+  <image class='top-image' src='/images/homepage/回顶部.png'></image>
+  <button class='float-button'>顶部</button>
+</view>
 
 <view class='footer'></view>

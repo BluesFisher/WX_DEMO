@@ -78,17 +78,30 @@ Page({
         { name: '女装馆', src: '#', pic: '/images/homepage/女装.png' },
         { name: '查看更多', src: '#', pic: '/images/homepage/更多.png' },
       ],
-      show3: [
-        { title: '型男节-觉醒新主张', time: '仅剩2天', pic: '/images/homepage/宣传1.jpg', explain: '买满300返100' },
-        { title: '新风尚-舍我其谁', time: '仅剩2天', pic: '/images/homepage/宣传2.jpg', explain: '满1件打5折，满2件打3.5折' },
-        { title: '大牌来袭', time: '仅剩2天', pic: '/images/homepage/宣传3.jpg', explain: '满1件打5折，满2件打3.5折' },
-        { title: '你的绣花鞋', time: '仅剩2天', pic: '/images/homepage/宣传4.jpg', explain: '全场3折' },
-        { title: '夏季风暴', time: '仅剩2天', pic: '/images/homepage/宣传5.jpg', explain: '赢积分送好礼' }, 
-        { title: '你的选择你做主', time: '仅剩2天', pic: '/images/homepage/宣传6.jpg', explain: '' },
-        { title: '品牌张力', time: '仅剩2天', pic: '/images/homepage/宣传7.jpg', explain: '满1件打5折，满2件打3.5折' },
-      ]
     },
+    homePageDetail: [
+      { title: '型男节-觉醒新主张', time: '仅剩2天', pic: '/images/homepage/宣传1.jpg', explain: '买满300返100' },
+      { title: '新风尚', time: '仅剩2天', pic: '/images/homepage/宣传2.jpg', explain: '满1件5折，满2件3折' },
+      { title: '大牌来袭', time: '仅剩2天', pic: '/images/homepage/宣传3.jpg', explain: '满1件5折，满2件3折' },
+      { title: '你的绣花鞋', time: '仅剩2天', pic: '/images/homepage/宣传4.jpg', explain: '全场3折' },
+      { title: '夏季风暴', time: '仅剩2天', pic: '/images/homepage/宣传5.jpg', explain: '赢积分送好礼' },
+
+      { title: '你的选择你做主', time: '仅剩2天', pic: '/images/homepage/宣传6.jpg', explain: '' },
+      { title: '品牌张力', time: '仅剩2天', pic: '/images/homepage/宣传7.jpg', explain: '满1件5折，满2件3折' },
+      { title: '7彩生活', time: '仅剩2天', pic: '/images/homepage/宣传8.jpg', explain: '买一送一' },
+      { title: '双摄精彩', time: '仅剩2天', pic: '/images/homepage/宣传9.jpg', explain: '折后更优惠' },
+      { title: '淡雅清新', time: '仅剩2天', pic: '/images/homepage/宣传10.jpg', explain: '满1件5折，满2件3折' },
+
+      { title: '华为-全新突破', time: '仅剩2天', pic: '/images/homepage/宣传11.jpg', explain: '全场3折' },
+      { title: '再近一步', time: '仅剩2天', pic: '/images/homepage/宣传12.jpg', explain: '赢积分送好礼' },
+      { title: '美的Midea', time: '仅剩2天', pic: '/images/homepage/宣传13.jpg', explain: '' },
+      { title: '三星-震撼来袭', time: '仅剩2天', pic: '/images/homepage/宣传14.jpg', explain: '预定送好礼' },
+      { title: '世界杯首选', time: '仅剩2天', pic: '/images/homepage/宣传15.jpg', explain: '红包来袭' },
+    ],
     floorstatus: false,
+    scrollTop: 0,
+    detailShowNum: 5,
+    detailShow: null,
   },
 
   //事件处理函数
@@ -121,6 +134,7 @@ Page({
     var self = this;
     this.setData({
       headerNav: self.data.navItem,
+      detailShow: self.data.homePageDetail.slice(0, self.data.detailShowNum),
     })
   },
   onShareAppMessage: function () {
@@ -171,7 +185,6 @@ Page({
     })
   },
   scroll: function (e) {
-    console.log(e);
     if (e.detail.scrollTop > 500) {
       this.setData({
         floorstatus: true
@@ -181,5 +194,24 @@ Page({
         floorstatus: false
       });
     }
+  },
+  getMore: function (e) {
+    if (this.data.detailShowNum === this.data.homePageDetail.length) {
+      return;
+    }
+    this.data.detailShowNum += 5;
+    if (this.data.detailShowNum > this.data.homePageDetail.length) {
+      this.data.detailShowNum = this.data.homePageDetail.length;
+    }
+    var show = this.data.homePageDetail.slice(0, this.data.detailShowNum);
+    console.log(this.data.homePageDetail.length);
+    this.setData({
+      detailShow: show
+    });
+  },
+  goTop: function (e) {
+    this.setData({
+      scrollTop: 0
+    })
   },
 })
