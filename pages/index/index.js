@@ -171,6 +171,7 @@ Page({
     })
   },
   scroll: function (e) {
+    console.log(e);
     if (e.detail.scrollTop > 500) {
       this.setData({
         floorstatus: true
