@@ -65,8 +65,8 @@ Page({
   
   },
   cancel: function () {
-    wx.navigateTo({
+    wx.switchTab({
       url: '/pages/index/index',
-    });
+    })
   }
 })

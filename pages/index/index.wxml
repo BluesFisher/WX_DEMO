@@ -29,7 +29,7 @@
         <image wx:for='{{showItem.show4}}' wx:key='id' src='{{item.pic}}'></image>
         <navigator wx:for='{{showItem.show4}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator>
   </view>
-  <view class="zhezao" hidden='{{popHidden}}'></view> 
+  <view class="zhezao" hidden='{{popHidden}}' bindtap='showMore'></view> 
   <view class="{{popHidden ? 'popOut' : 'popMenu'}}">
     <view class='choose'>{{choose}}</view>
   </view>
@@ -37,39 +37,48 @@
 <!--END 弹出菜单-->
 
 <!--START 内容主体-->
+<swiper class='homepage-swiper' current="{{currentTab}}" duration="200" bindchange="swiperChange"> 
+  <swiper-item>
+    <scroll-view class='content' style="height: 500px" scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-with-animation="true" bindscrolltolower="getMore">
+      <swiper class='content-swiper' indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular='true'>
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image"/>
+          </swiper-item>
+        </block>
+      </swiper> 
+      
+      <image class='hot' src='/images/homepage/hot.gif'></image>
+      <view class='homePage-group'>
+        <image wx:for='{{homePageItem.show1}}' wx:key='id' src='{{item.pic}}'> </image>
+        <navigator wx:for='{{homePageItem.show1}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator>
 
-<scroll-view class='content' style="height: 500px" scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-with-animation="true" bindscrolltolower="getMore">
-  <swiper class='content-swiper' indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular='true'>
-    <block wx:for="{{imgUrls}}" wx:key="*this">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image"/>
-      </swiper-item>
-    </block>
-  </swiper> 
-  
-  <image class='hot' src='/images/homepage/hot.gif'></image>
-  <view class='homePage-group'>
-    <image wx:for='{{homePageItem.show1}}' wx:key='id' src='{{item.pic}}'> </image>
-    <navigator wx:for='{{homePageItem.show1}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator>
+        <image wx:for='{{homePageItem.show2}}' wx:key='id' src='{{item.pic}}'></image>
+        <navigator wx:for='{{homePageItem.show2}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator> 
+      </view> 
 
-    <image wx:for='{{homePageItem.show2}}' wx:key='id' src='{{item.pic}}'></image>
-    <navigator wx:for='{{homePageItem.show2}}' wx:key='id' url='{{item.src}}'>{{item.name}}</navigator> 
-  </view> 
-
-  <view class='homePage-update'>
-    <view class='tips'>每天早10点 晚8点更新</view>
-    <view wx:for='{{detailShow}}' wx:key='id'>
-      <image src='{{item.pic}}'></image>
-      <view class='des'>
-        <view class='title'>{{item.title}}</view>
-        <view class='time'>{{item.time}}</view>
+      <view class='homePage-update'>
+        <view class='tips'>每天早10点 晚8点更新</view>
+        <view wx:for='{{detailShow}}' wx:key='id'>
+          <image src='{{item.pic}}'></image>
+          <view class='des'>
+            <view class='title'>{{item.title}}</view>
+            <view class='time'>{{item.time}}</view>
+          </view>
+          <image class='explain-img' src="/images/homepage/折扣.png" wx:if='{{item.explain}}'></image>
+          <view class='explain'>{{item.explain}}</view>
+        </view>
       </view>
-      <image class='explain-img' src="/images/homepage/折扣.png" wx:if='{{item.explain}}'></image>
-      <view class='explain'>{{item.explain}}</view>
-    </view>
-  </view>
-  
-</scroll-view> 
+    </scroll-view> 
+  </swiper-item>
+
+  <swiper-item>  
+    <view>我是tab2</view>  
+  </swiper-item>  
+  <swiper-item>  
+    <view>我是tab3</view>  
+  </swiper-item>
+</swiper>
 
 <!--END 内容主体-->
 <view wx:if='{{floorstatus}}' bindtap="goTop">

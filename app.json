@@ -21,13 +21,13 @@
         "selectedIconPath": "images/homepage_fill.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/choiceness/choiceness",
         "text": "分类",
         "iconPath": "images/stealth.png",
         "selectedIconPath": "images/stealth_fill.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/choiceness/choiceness",
         "text": "购物车",
         "iconPath": "images/goods.png",
         "selectedIconPath": "images/goods_fill.png"
